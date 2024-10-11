@@ -93,12 +93,7 @@ export default function ComingSoonLayout({ children }) {
                     height: 1,
                     zIndex: -1,
                     content: "''",
-                    position: 'absolute',
-                    // backgroundSize: 'cover',
-                    // opacity: { xs: 0.24, md: 0 },
-                    // backgroundRepeat: 'no-repeat',
-                    // backgroundPosition: 'center center',
-                    // backgroundImage: 'url(/assets/background/overlay_4.jpg)',
+                    position: 'absolute'
                 },
             }}
         >
