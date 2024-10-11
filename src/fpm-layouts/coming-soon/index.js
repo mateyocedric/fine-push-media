@@ -35,14 +35,12 @@ export default function ComingSoonLayout({ children }) {
 
             {!mdUp && (
                 <Lottie
-                    options={{
-                        loop: true,
-                        autoplay: true,
-                        animationData: ComingSoonWallet,
-                        rendererSettings: {
-                            preserveAspectRatio: "xMidYMid slice",
-                        },
+                    loop
+                    autoplay
+                    rendererSettings={{
+                        preserveAspectRatio: "xMidYMid slice",
                     }}
+                    animationData={ComingSoonWallet}
                     isClickToPauseDisabled
                     height="100%"
                     width="100%"
@@ -64,14 +62,12 @@ export default function ComingSoonLayout({ children }) {
                 }}
             >
                 <Lottie
-                    options={{
-                        loop: true,
-                        autoplay: true,
-                        animationData: ComingSoonWallet,
-                        rendererSettings: {
-                            preserveAspectRatio: "xMidYMid slice",
-                        },
+                    loop
+                    autoplay
+                    rendererSettings={{
+                        preserveAspectRatio: "xMidYMid slice",
                     }}
+                    animationData={ComingSoonWallet}
                     isClickToPauseDisabled
                     height="100%"
                     width="100%"
