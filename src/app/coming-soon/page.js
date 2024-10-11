@@ -5,6 +5,6 @@ export const metadata = {
   title: 'Currency Checker: We are working on something awesome',
 };
 
-export default function ComingSoonV2Page() {
+export default function ComingSoonPage() {
   return <ComingSoonV2 />;
 }

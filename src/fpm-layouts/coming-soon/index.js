@@ -1,17 +1,16 @@
 "use client";
 
-import Lottie from "react-lottie";
 import PropTypes from 'prop-types';
-
+import dynamic from "next/dynamic";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import ComingSoonWallet from 'src/lottie/coming-soon-currency.json';
-
 import Logo from 'src/components/logo';
 
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 // ----------------------------------------------------------------------
 
 export default function ComingSoonLayout({ children }) {
