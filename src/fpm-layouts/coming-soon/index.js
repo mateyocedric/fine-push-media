@@ -1,0 +1,117 @@
+"use client";
+
+import Lottie from "react-lottie";
+import PropTypes from 'prop-types';
+
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+
+import { useResponsive } from 'src/hooks/use-responsive';
+
+import ComingSoonWallet from 'src/lottie/coming-soon-currency.json';
+
+import Logo from 'src/components/logo';
+
+// ----------------------------------------------------------------------
+
+export default function ComingSoonLayout({ children }) {
+    const mdUp = useResponsive('up', 'md');
+
+    const renderContent = (
+        <Stack
+            sx={{
+                width: 1,
+                mx: 'auto',
+                maxWidth: 600,
+                px: { xs: 2, md: 8 },
+            }}
+        >
+            <Logo
+                sx={{
+                    mt: { xs: 2, md: 8 },
+                    mb: { xs: 10, md: 8 },
+                }}
+            />
+            {children}
+
+            {!mdUp && (
+                <Lottie
+                    options={{
+                        loop: true,
+                        autoplay: true,
+                        animationData: ComingSoonWallet,
+                        rendererSettings: {
+                            preserveAspectRatio: "xMidYMid slice",
+                        },
+                    }}
+                    isClickToPauseDisabled
+                    height="100%"
+                    width="100%"
+                />
+            )}
+        </Stack>
+    );
+
+    const renderSection = (
+        <Stack flexGrow={1} sx={{ position: 'relative' }}>
+            <Box
+                sx={{
+                    top: 16,
+                    left: 16,
+                    objectFit: 'cover',
+                    position: 'absolute',
+                    width: 'calc(100% - 32px)',
+                    height: 'calc(100% - 32px)',
+                }}
+            >
+                <Lottie
+                    options={{
+                        loop: true,
+                        autoplay: true,
+                        animationData: ComingSoonWallet,
+                        rendererSettings: {
+                            preserveAspectRatio: "xMidYMid slice",
+                        },
+                    }}
+                    isClickToPauseDisabled
+                    height="100%"
+                    width="100%"
+                />
+
+            </Box>
+        </Stack>
+    );
+
+    return (
+        <Stack
+            component="main"
+            direction="row"
+            sx={{
+                minHeight: '100vh',
+                position: 'relative',
+                '&:before': {
+                    width: 1,
+                    height: 1,
+                    zIndex: -1,
+                    content: "''",
+                    position: 'absolute',
+                    // backgroundSize: 'cover',
+                    // opacity: { xs: 0.24, md: 0 },
+                    // backgroundRepeat: 'no-repeat',
+                    // backgroundPosition: 'center center',
+                    // backgroundImage: 'url(/assets/background/overlay_4.jpg)',
+                },
+            }}
+        >
+            {renderContent}
+
+            {mdUp && renderSection}
+        </Stack>
+    );
+}
+
+
+
+ComingSoonLayout.propTypes = {
+    children: PropTypes.node,
+};

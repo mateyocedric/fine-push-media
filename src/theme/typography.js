@@ -1,4 +1,4 @@
-import { Barlow, Public_Sans, Merriweather, Poppins } from 'next/font/google';
+import { Barlow, Poppins, Bebas_Neue } from 'next/font/google';
 
 // ----------------------------------------------------------------------
 

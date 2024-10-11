@@ -17,6 +17,7 @@
     "re:build-npm": "npm run rm:all && npm install && npm run build"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.8",
     "@auth0/auth0-react": "^2.2.3",
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.11.1",
@@ -31,6 +32,7 @@
     "@hello-pangea/dnd": "^16.5.0",
     "@hookform/resolvers": "^3.3.2",
     "@iconify/react": "^4.1.1",
+    "@leenguyen/react-flip-clock-countdown": "^1.6.0",
     "@mui/lab": "^5.0.0-alpha.155",
     "@mui/material": "^5.14.20",
     "@mui/system": "^5.14.20",
@@ -39,6 +41,7 @@
     "@react-pdf/renderer": "^3.1.14",
     "@supabase/supabase-js": "^2.39.0",
     "apexcharts": "^3.44.2",
+    "apollo-upload-client": "^18.0.1",
     "autosuggest-highlight": "^3.3.4",
     "aws-amplify": "^6.0.6",
     "axios": "^1.6.2",

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable perfectionist/sort-imports */
 import 'src/global.css';
 
@@ -21,6 +22,7 @@ import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 import { CheckoutProvider } from 'src/sections/checkout/context';
 
 import { AuthProvider } from 'src/auth/context/jwt';
+import StrapiApolloProvider from 'graphql/apollo';
 // import { AuthProvider } from 'src/auth/context/auth0';
 // import { AuthProvider } from 'src/auth/context/amplify';
 // import { AuthProvider } from 'src/auth/context/firebase';
@@ -36,10 +38,9 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Minimal UI Kit',
-  description:
-    'The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI ©, ready to be customized to your style',
-  keywords: 'react,material,kit,application,dashboard,admin,template',
+  title: 'Currency Seeker',
+  description: 'Get coverage of crypto news and current headlines',
+  keywords: 'crypto, news, headlines, currency, seeker',
   manifest: '/manifest.json',
   icons: [
     { rel: 'icon', url: '/favicon/favicon.ico' },
@@ -57,11 +58,11 @@ export default function RootLayout({ children }) {
           <LocalizationProvider>
             <SettingsProvider
               defaultSettings={{
-                themeMode: 'light', // 'light' | 'dark'
+                themeMode: 'dark', // 'light' | 'dark'
                 themeDirection: 'ltr', //  'rtl' | 'ltr'
-                themeContrast: 'default', // 'default' | 'bold'
+                themeContrast: 'bold', // 'default' | 'bold'
                 themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
-                themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+                themeColorPresets: 'cyan', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
                 themeStretch: false,
               }}
             >
@@ -69,9 +70,11 @@ export default function RootLayout({ children }) {
                 <MotionLazy>
                   <SnackbarProvider>
                     <CheckoutProvider>
-                      <SettingsDrawer />
-                      <ProgressBar />
-                      {children}
+                      <StrapiApolloProvider>
+                        <SettingsDrawer />
+                        <ProgressBar />
+                        {children}
+                      </StrapiApolloProvider>
                     </CheckoutProvider>
                   </SnackbarProvider>
                 </MotionLazy>

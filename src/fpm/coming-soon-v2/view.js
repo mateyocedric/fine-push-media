@@ -1,100 +1,79 @@
 'use client';
 
-import * as Yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { m } from 'framer-motion';
 
-import { alpha } from '@mui/material/styles';
-import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import { Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import LoadingButton from '@mui/lab/LoadingButton';
-import InputAdornment from '@mui/material/InputAdornment';
+import { alpha, styled } from '@mui/material/styles';
 
-import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
-
-import { useBoolean } from 'src/hooks/use-boolean';
 import { _socials } from 'src/_mock';
+import { textGradient } from 'src/theme/css';
+import ComingSoonForm from 'src/fpm/coming-soon-v2/components/ComingSoonForm';
+import ComingSoonFlipClock from 'src/fpm/coming-soon-v2/components/ComingSoonFlipClock';
+
 import Iconify from 'src/components/iconify';
-import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
-// ----------------------------------------------------------------------
+const StyledTextGradient = styled(m.span)(({ theme }) => ({
+    ...textGradient(
+        `300deg, ${theme.palette.grey[0]} 0%, ${theme.palette.grey[100]} 25%, ${theme.palette.grey[500]} 50%, ${theme.palette.primary.main} 75%, ${theme.palette.primary.main} 100%`
+    ),
+    backgroundSize: '400%',
+    fontWeight: 900,
+    lineHeight: 1.2,
+    letterSpacing: 0,
+    fontSize: 'inherit', // Keep size consistent with the Typography variant
+    fontFamily: theme.typography.fontSecondaryFamily,
+}));
 
-export default function ComingSoonV2View() {
+const ComingSoonV2 = () => (
 
-
-    const LoginSchema = Yup.object().shape({
-        email: Yup.string().required('Email is required').email('Email must be a valid email address'),
-        password: Yup.string().required('Password is required'),
-    });
-
-    const defaultValues = {
-        email: '',
-        password: '',
-    };
-
-    const methods = useForm({
-        resolver: yupResolver(LoginSchema),
-        defaultValues,
-    });
-
-    const {
-        handleSubmit,
-        formState: { isSubmitting },
-    } = methods;
-
-    const onSubmit = handleSubmit(async (data) => {
-        try {
-            await new Promise((resolve) => setTimeout(resolve, 500));
-            console.info('DATA', data);
-        } catch (error) {
-            console.error(error);
-        }
-    });
-
-    const renderHead = (
-        <Typography variant="h2">
-            Coverage of breaking news and current headlines from
-            New York.
-        </Typography>
-    );
-
-    const renderForm = (
-        <Stack spacing={2.5} mt={5}>
-            <Typography variant="h4">
-                Get notified when we get live!
+    <Stack>
+        {/* <ComingSoonFlipClock /> */}
+        <Stack direction='column'>
+            <Typography variant='overline' color='primary'>
+                Stay tuned
             </Typography>
-            <RHFTextField name="email" label="Email address" />
+            <Box>
+                <Typography variant='h2' sx={{ fontWeight: 900 }}>
+                    Get coverage of{' '}
+                    <StyledTextGradient
+                        animate={{ backgroundPosition: '200% center' }}
+                        transition={{
+                            repeatType: 'reverse',
+                            ease: 'linear',
+                            duration: 20,
+                            repeat: Infinity,
+                        }}
+                    >
+                        crypto news
+                    </StyledTextGradient>{' '}
+                    and current headlines
+                </Typography>
+            </Box>
 
-            <LoadingButton
-                fullWidth
-                color="inherit"
-                size="large"
-                type="submit"
-                variant="contained"
-                loading={isSubmitting}
-                endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
-                sx={{ justifyContent: 'space-between', pl: 2, pr: 1.5 }}
-            >
-                Submit
-            </LoadingButton>
         </Stack>
-    );
+        <Typography variant="paragraph" mt={2}>
+            Our website is under construction. We&apos;ll be here soon with our new awesome site.
+        </Typography>
+        <Box
+            sx={{
+                width: '100%'
+            }}
+        >
+            <ComingSoonForm />
+        </Box>
 
-    return (
-        <FormProvider methods={methods} onSubmit={onSubmit}>
-            {renderHead}
 
-            {renderForm}
-
-            <Stack spacing={1} alignItems="center" justifyContent="center" direction="row" mt={5}>
+        <Box mt={10}>
+            <ComingSoonFlipClock />
+            <Stack spacing={1} alignItems="center" justifyContent="start" direction="row" mt={2}>
                 {_socials.map((social) => (
                     <IconButton
                         key={social.name}
                         sx={{
-                            color: social.color,
+                            color: 'white',
                             '&:hover': {
                                 bgcolor: alpha(social.color, 0.08),
                             },
@@ -104,6 +83,10 @@ export default function ComingSoonV2View() {
                     </IconButton>
                 ))}
             </Stack>
-        </FormProvider>
-    );
-}
+        </Box>
+    </Stack>
+
+
+)
+
+export default ComingSoonV2

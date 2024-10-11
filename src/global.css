@@ -18,3 +18,17 @@
 @import 'yet-another-react-lightbox/styles.css';
 @import 'yet-another-react-lightbox/plugins/captions.css';
 @import 'yet-another-react-lightbox/plugins/thumbnails.css';
+@import '@leenguyen/react-flip-clock-countdown/dist/index.css';
+
+
+.flip-clock {
+    --fcc-flip-duration: 0.8s; /* transition duration when flip card */
+    --fcc-digit-block-width: 10px; /* width of digit card */
+    --fcc-digit-block-height: 10px; /* height of digit card, highly recommend in even number */
+    --fcc-digit-font-size: 10px; /* font size of digit */
+    --fcc-label-font-size: 16px; /* font size of label */
+    --fcc-digit-color: white; /* color of digit */
+    --fcc-background: black; /* background of digit card */
+    --fcc-label-color: #ffffff; /* color of label */
+    --fcc-divider-color: #ffffff66; /* color of divider */
+  }

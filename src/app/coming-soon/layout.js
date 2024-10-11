@@ -2,12 +2,12 @@
 
 import PropTypes from 'prop-types';
 
-import CompactLayout from 'src/layouts/compact';
+import ComingSoonLayout from 'src/fpm-layouts/coming-soon';
 
 // ----------------------------------------------------------------------
 
 export default function Layout({ children }) {
-  return <CompactLayout noHeader={true}>{children}</CompactLayout>;
+  return <ComingSoonLayout>{children}</ComingSoonLayout>;
 }
 
 Layout.propTypes = {
