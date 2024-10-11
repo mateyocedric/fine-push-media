@@ -18,4 +18,14 @@ module.exports = {
     });
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path((?!coming-soon).*)', // Exclude "/coming-soon" from being redirected
+        destination: '/coming-soon',
+        permanent: false, // Temporary redirect (302)
+      },
+    ];
+  },
+
 };
