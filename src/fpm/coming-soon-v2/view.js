@@ -54,9 +54,11 @@ const ComingSoonV2 = () => (
             </Box>
 
         </Stack>
+        
         <Typography variant="paragraph" mt={2}>
             Our website is under construction. We&apos;ll be here soon with our new awesome site.
         </Typography>
+
         <Box
             sx={{
                 width: '100%'

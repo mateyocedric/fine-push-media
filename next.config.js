@@ -1,4 +1,7 @@
 module.exports = {
+  images: {
+    domains: ['images4.alphacoders.com'],
+  },
   trailingSlash: true,
   modularizeImports: {
     '@mui/icons-material': {
@@ -18,14 +21,14 @@ module.exports = {
     });
     return config;
   },
-  async redirects() {
-    return [
-      {
-        source: '/:path((?!coming-soon).*)', // Exclude "/coming-soon" from being redirected
-        destination: '/coming-soon',
-        permanent: false, // Temporary redirect (302)
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/:path((?!coming-soon).*)', // Exclude "/coming-soon" from being redirected
+  //       destination: '/coming-soon',
+  //       permanent: false, // Temporary redirect (302)
+  //     },
+  //   ];
+  // },
 
 };

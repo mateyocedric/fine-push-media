@@ -15,7 +15,6 @@ import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { useCountdownDate } from 'src/hooks/use-countdown';
 
 import { _socials } from 'src/_mock';
-import { ComingSoonIllustration } from 'src/assets/illustrations';
 
 import Iconify from 'src/components/iconify';
 import Lottie from "react-lottie";
